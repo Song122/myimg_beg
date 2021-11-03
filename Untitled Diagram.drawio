@@ -1,1 +1,28 @@
-<mxfile host="app.diagrams.net" modified="2021-11-03T06:31:30.975Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" version="15.6.6" etag="Kj-q4C9TnNZoSR7SYW1z" type="github"><diagram id="HcrCj9Fk7ENLxogsjNCR">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-11-03T06:39:05.694Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="1HuBcPng1-8DVsku6s6J" version="15.6.6" type="github">
+  <diagram id="HcrCj9Fk7ENLxogsjNCR" name="Page-1">
+    <mxGraphModel dx="1554" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=default;" edge="1" parent="1" source="F0vaxULOa0Nvf2QFkF-G-1" target="F0vaxULOa0Nvf2QFkF-G-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-1" value="点击&lt;b&gt;文字框&lt;/b&gt;后再点击&lt;b&gt;文本朗读&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;strokeColor=default;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="210" y="190" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=default;" edge="1" parent="1" source="F0vaxULOa0Nvf2QFkF-G-4" target="F0vaxULOa0Nvf2QFkF-G-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-4" value="获取文本朗读抽屉（接口）" style="whiteSpace=wrap;html=1;rounded=0;fillColor=default;strokeColor=default;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="215" y="300" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-6" value="选择具体的音色进行朗读（接口）" style="whiteSpace=wrap;html=1;rounded=0;fillColor=default;strokeColor=default;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="207.5" y="395" width="185" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-8" value="这里客户端穿过来文本，后端返回 base64编码后音频数据" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="400" y="412.5" width="320" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
