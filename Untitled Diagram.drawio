@@ -1,26 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2021-11-03T06:50:49.716Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="P__1QcE1QYWflyOU2svm" version="15.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-04T06:20:33.093Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="K2Do1pubBCOkZwlLamlf" version="15.6.6" type="github">
   <diagram id="HcrCj9Fk7ENLxogsjNCR" name="Page-1">
-    <mxGraphModel dx="1554" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1794" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="F0vaxULOa0Nvf2QFkF-G-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=default;" edge="1" parent="1" source="F0vaxULOa0Nvf2QFkF-G-1" target="F0vaxULOa0Nvf2QFkF-G-4">
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=default;" parent="1" source="F0vaxULOa0Nvf2QFkF-G-1" target="F0vaxULOa0Nvf2QFkF-G-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="F0vaxULOa0Nvf2QFkF-G-1" value="点击&lt;b&gt;文字框&lt;/b&gt;后再点击&lt;b&gt;文本朗读&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;strokeColor=default;fontColor=default;" vertex="1" parent="1">
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-1" value="点击&lt;b&gt;文字框&lt;/b&gt;后再点击&lt;b&gt;文本朗读&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;strokeColor=default;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="210" y="190" width="180" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="F0vaxULOa0Nvf2QFkF-G-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=default;" edge="1" parent="1" source="F0vaxULOa0Nvf2QFkF-G-4" target="F0vaxULOa0Nvf2QFkF-G-6">
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=default;" parent="1" source="F0vaxULOa0Nvf2QFkF-G-4" target="F0vaxULOa0Nvf2QFkF-G-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="F0vaxULOa0Nvf2QFkF-G-4" value="获取文本朗读抽屉（接口）" style="whiteSpace=wrap;html=1;rounded=0;fillColor=default;strokeColor=default;fontColor=default;" vertex="1" parent="1">
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-4" value="获取文本朗读抽屉（接口）" style="whiteSpace=wrap;html=1;rounded=0;fillColor=default;strokeColor=default;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="215" y="300" width="170" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="F0vaxULOa0Nvf2QFkF-G-6" value="选择具体的音色进行朗读（接口）" style="whiteSpace=wrap;html=1;rounded=0;fillColor=default;strokeColor=default;fontColor=default;" vertex="1" parent="1">
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-6" value="选择具体的音色进行朗读（接口）" style="whiteSpace=wrap;html=1;rounded=0;fillColor=default;strokeColor=default;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="207.5" y="395" width="185" height="55" as="geometry" />
         </mxCell>
-        <mxCell id="F0vaxULOa0Nvf2QFkF-G-8" value="这里客户端穿过来文本，后端返回 base64编码后音频数据，上限字数300个字符" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;" vertex="1" parent="1">
-          <mxGeometry x="414" y="412.5" width="440" height="20" as="geometry" />
+        <mxCell id="F0vaxULOa0Nvf2QFkF-G-8" value="这里客户端传过来文本，后端返回 base64编码后音频数据，上限字数300个字符" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="400" y="412.5" width="440" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ueznYjcdfz9YXAipYhXP-1" value="&lt;b&gt;确认下是否提供接口&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="420" y="305" width="120" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
