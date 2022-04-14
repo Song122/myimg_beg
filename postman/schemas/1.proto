@@ -1,0 +1,369 @@
+syntax = "proto3";
+
+//发券活动接口
+option java_package = "cn.hexcloud.m82.crm.coupon.proto.activity";
+option java_outer_classname = "CouponActivityProto";
+option optimize_for = SPEED;
+option java_multiple_files = true;
+
+//添加发券活动入参
+message AddCouponActivityIn{
+  string activityName        = 1;//活动名称
+  string couponTemplateJson  = 2;//活动券模版json 示例：[{"couponTemplateId":1,"sendNum":2}]
+  int32  suitPerson          = 3;//适用人群1全部用户2指定会员等级3指定会员标签4指定城市5手动上传
+  string suitPersonFileUrl   = 4;//适合人群上传文件链接
+  string suitPersonPhone     =5;//适合人群电话用逗号隔开
+  repeated string issueChannel = 6;//发券渠道多个用,隔开
+  int32  sendTimeType        = 7;//活动时段类型：1立刻发放2指定时段发放
+  string sendStartAt         = 8;//活动时段类型2-发放开始时间
+  string sendEndAt           = 9;//活动时段类型2-发放结束时间
+  int32  effectTimeType      = 10;//发放时间类型1每天2指定时段
+  repeated EffectShortTimes effectShortTimes    = 11;//发放时间json 示例[{"week":1,"time":"2021-01-01 12:00:00"}] week (1-7)
+  int32  issueType           = 12;//发放方式1弹窗通知2短信通知3公众号模版通知
+  int32  popupWindowPosition = 13;//弹窗位置1首页2点单页
+  int32  popupType           = 14;//弹窗类型1默认2自定义
+  string popupStyle          = 15;//弹窗样式
+  int32  refundReturnTicket  = 16;//退款退券1允许2不允许
+}
+
+
+//可用时段类型2/3,指定时段json
+message EffectShortTimes{
+  int32 week   = 1;//星期
+  string timePoint =2;//时间范围
+}
+
+//发券活动入参
+message CouponActivityListIn{
+  string keyword        = 1;//关键词检索
+  repeated string suitPerson     = 2;//发放人群多个用,隔开
+  repeated string issueChannel   = 3;//发放渠道多个用,隔开
+  repeated int32  activityStatus = 4;//活动状态多个用,隔开
+  int32  current    = 5;// 页码
+  int32  pageSize       = 6;//每页数量
+}
+
+//发券活动出参
+message CouponActivityListOut{
+  pageInfoOut.PageInfoOut     pageInfo = 1;
+  repeated CouponActivityList list     = 2;
+}
+
+//发券活动信息
+message CouponActivityList{
+  int32  id                  = 1;//活动ID
+  string activityName        = 2;//活动名称
+  int32  suitPerson          = 3;//适用人群1全部用户2指定会员等级3指定会员标签4指定城市5手动上传
+  string suitPersonStr       = 4;//使用人群显示
+  string suitPersonFileUrl   = 5;//适合人群上传文件链接
+  repeated  string issueChannel = 6;//发券渠道多个用,隔开
+  repeated string issueChannelStr     = 7;//发放渠道字符串
+  int32  issueType           = 8;//通知方式1弹窗通知2短信通知3公众号模版通知
+  string issueTypeStr        = 9;//通知方式字符串
+  int32  sendTimeType        = 10;//活动时段类型：1立刻发放2指定时段发放
+  string sendStartAt         = 11;//活动时段类型2-发放开始时间
+  string sendEndAt           = 12;//活动时段类型2-发放结束时间
+  string update_at           = 13; //更新时间
+  string createOper          = 14; //创建人
+  string activityStatusStr   = 15;//状态
+  int32  effectTimeType      = 16;//发放时间类型1每天2指定时段
+  repeated EffectShortTimes effectShortTimes    = 17;//发放时间json 示例[{"week":1,"time":"2021-01-01 12:00:00"}] week (1-7)
+  int32  popupWindowPosition = 18;//弹窗位置1首页2点单页
+  int32  popupType           = 19;//弹窗类型1默认2自定义
+  string popupStyle          = 20;//弹窗样式
+  int32  refundReturnTicket  = 21;//退款退券1允许2不允许
+  int32  activityStatus     = 22;//退款退券1允许2不允许
+  string validDateTime       =23;//有效期限
+  int32 createOperId       =24;//创建人昵称
+  //repeated CouponTemplate couponTemplate      = 22;//券模版
+}
+
+//修改发券活动入参
+message UpdateCouponActivityIn{
+  int64  id                  = 16; //发券活动id
+  string activityName        = 1;//活动名称
+  string couponTemplateJson  = 2;//活动券模版json 示例：[{"couponTemplateId":1,"sendNum":2}]
+  int32  suitPerson          = 3;//适用人群1全部用户2指定会员等级3指定会员标签4指定城市5手动上传
+  string suitPersonFileUrl   = 4;//适合人群上传文件链接
+  repeated string issueChannel = 5;//发券渠道多个用,隔开
+  int32  sendTimeType        = 6;//活动时段类型：1立刻发放2指定时段发放
+  string sendStartAt         = 7;//活动时段类型2-发放开始时间
+  string sendEndAt           = 8;//活动时段类型2-发放结束时间
+  int32  effectTimeType      = 9;//发放时间类型1每天2指定时段
+  repeated EffectShortTimes effectShortTimes    = 10;//发放时间json 示例[{"week":1,"time":"2021-01-01 12:00:00"}] week (1-7)
+  int32  issueType           = 11;//发放方式1弹窗通知2短信通知3公众号模版通知
+  int32  popupWindowPosition = 12;//弹窗位置1首页2点单页
+  int32  popupType           = 13;//弹窗类型1默认2自定义
+  string popupStyle          = 14;//弹窗样式
+  int32  refundReturnTicket  = 15;//退款退券1允许2不允许
+}
+
+//修改发券活动状态
+message UpdateCouponActivityStatusIn{
+  int64 id             = 1; //发券活动id
+  int32 activityStatus = 2;//状态1待开始2进行中3已结束4已暂停
+}
+
+//删除发券活动
+message DelCouponActivityIn{
+  int64 id = 1; //发券活动id
+}
+
+//查看发券活动入参
+message GetCouponActivityIn{
+  int64 id = 1;//ID
+}
+
+//查看发券活动出参
+message GetCouponActivityOut{
+  int64  id                  = 1;//活动ID
+  string activityName        = 2;//活动名称
+  int32  suitPerson          = 3;//适用人群1全部用户2指定会员等级3指定会员标签4指定城市5手动上传
+  string suitPersonStr       = 4;//使用人群显示
+  string suitPersonFileUrl   = 5;//适合人群上传文件链接
+  string issueChannel        = 6;//发券渠道多个用,隔开
+  string issueChannelStr     = 7;//发放渠道字符串
+  int32  issueType           = 8;//通知方式1弹窗通知2短信通知3公众号模版通知
+  string issueTypeStr        = 9;//通知方式字符串
+  int32  sendTimeType        = 10;//活动时段类型：1立刻发放2指定时段发放
+  string sendStartAt         = 11;//活动时段类型2-发放开始时间
+  string sendEndAt           = 12;//活动时段类型2-发放结束时间
+  string update_at           = 13; //更新时间
+  string createOper          = 14; //创建人
+  string activityStatusStr   = 15;//状态
+  int32  effectTimeType      = 16;//发放时间类型1每天2指定时段
+  repeated EffectShortTimes effectShortTimes    = 17;//发放时间json 示例[{"week":1,"time":"2021-01-01 12:00:00"}] week (1-7)
+  int32  popupWindowPosition = 18;//弹窗位置1首页2点单页
+  int32  popupType           = 19;//弹窗类型1默认2自定义
+  string popupStyle          = 20;//弹窗样式
+  int32  refundReturnTicket  = 21;//退款退券1允许2不允许
+  repeated string suitPersonPhone =22;//适合人群手机号，用逗号隔开
+  string couponTemplateJson =23;//活动券模版json
+}
+
+//新增领券活动入参
+message AddLedActivity{
+   string  activity_name            = 1;//活动名称
+   int32   led_stock_type           = 2;//活动类型1指定库存1无限库存2指定库存
+   int64   led_stock                = 3;//活动类型1 指定库存2指定库存,库存值
+   string  activity_backen_image    = 4;//活动类型1,活动背景图 活动类型2活动宣传图
+   int32   led_limit_type           = 5;//活动类型1领取限制1不限制2限制
+   int64   led_limit_value          = 6;//活动类型1 领取限制2限制,限制值
+   int32   share_to_mp_type         = 7;//活动类型1领取限制1允许2不允许
+   string  share_title              = 8;//活动类型1领取限制1允许,分享标题
+   string  activity_share_image     = 9;//活动类型1活动分享背景图
+   string  activity_rule            = 10;//活动类型1活动规则
+   int32   refund_return_ticket     = 11;//退款退券1允许2不允许'
+   int32   period_validity_type     = 12;//有效期类型1永久有效2指定时间
+   string  period_validity_start_at = 13;//有效类型2，生效开始时间
+   string  period_validity_end_at   = 14;//有效类型2，生效结束日期
+   string  coupon_template_json     = 15;//活动券模版json 示例：[{"couponTemplateId":1,"sendNum":2}]
+   int32   activity_status          = 16;//状态1待开始2进行中3已结束4已暂停' 仍旧
+   bool    still_submit             = 17;//仍旧提交
+}
+
+//编辑领券活动入参
+message UpdateLedActivity{
+  int64     id                     = 1;//id
+  string  activity_name            = 2;//活动名称
+  int32   led_stock_type           = 3;//活动类型1指定库存1无限库存2指定库存
+  int64   led_stock                = 4;//活动类型1 指定库存2指定库存,库存值
+  string  activity_backen_image    = 5;//活动类型1,活动背景图 活动类型2活动宣传图
+  int32   led_limit_type           = 6;//活动类型1领取限制1不限制2限制
+  int64   led_limit_value          = 7;//活动类型1 领取限制2限制,限制值
+  int32   share_to_mp_type         = 8;//活动类型1领取限制1允许2不允许
+  string  share_title              = 9;//活动类型1领取限制1允许,分享标题
+  string  activity_share_image     = 10;//活动类型1活动分享背景图
+  string  activity_rule            = 11;//活动类型1活动规则
+  int32   refund_return_ticket     = 12;//退款退券1允许2不允许'
+  int32   period_validity_type     = 13;//有效期类型1永久有效2指定时间
+  string  period_validity_start_at = 14;//有效类型2，生效开始时间
+  string  period_validity_end_at   = 15;//有效类型2，生效结束日期
+  string  coupon_template_json     = 16;//活动券模版json 示例：[{"couponTemplateId":1,"sendNum":2}]
+  int32   activity_status          = 17;//状态1待开始2进行中3已结束4已暂停'
+  bool    still_submit             = 18;//仍旧提交
+}
+
+
+
+//详情领券活动出参
+message LedActivityDetailOut{
+  int64     id                     = 1;//id
+  string  activity_name            = 2;//活动名称
+  int32   led_stock_type           = 3;//活动类型1指定库存1无限库存2指定库存
+  int64   led_stock                = 4;//活动类型1 指定库存2指定库存,库存值
+  string  activity_backen_image    = 5;//活动类型1,活动背景图 活动类型2活动宣传图
+  int32   led_limit_type           = 6;//活动类型1领取限制1不限制2限制
+  int64   led_limit_value          = 7;//活动类型1 领取限制2限制,限制值
+  int32   share_to_mp_type         = 8;//活动类型1领取限制1允许2不允许
+  string  share_title              = 9;//活动类型1领取限制1允许,分享标题
+  string  activity_share_image     = 10;//活动类型1活动分享背景图
+  string  activity_rule            = 11;//活动类型1活动规则
+  int32   refund_return_ticket     = 12;//退款退券1允许2不允许'
+  int32   period_validity_type     = 13;//有效期类型1永久有效2指定时间
+  string  period_validity_start_at = 14;//有效类型2，生效开始时间
+  string  period_validity_end_at   = 15;//有效类型2，生效结束日期
+  string  coupon_template_json     = 16;//活动券模版json 示例：[{"couponTemplateId":1,"sendNum":2}]
+  int32   activity_status          = 17;//状态1待开始2进行中3已结束4已暂停'
+}
+
+//领券活动列表入参
+message LedCouponActivityListIn{
+  int64  id                      = 1;//id
+  string activity_name           = 2;//活动名称
+  repeated int32  activityStatus = 3;//活动状态多个用,隔开
+  int32  current                 = 4;// 页码
+  int32  pageSize                = 5;//每页数量
+}
+
+//领券活动列表
+message LedActivityList{
+  int64     id                     = 1;//id
+  string  activity_name            = 2;//活动名称
+  string  period_validity_str      = 3;//有效期
+  int64   led_stock                = 4;//总库存
+  int64   rest_led_stock           = 5;//剩余库存
+  string  updated_at               = 6;//更新时间
+  string  operator_name            = 7;//创建人
+  int32   activity_status          = 8;//状态1待开始2进行中3已结束4已暂停'
+  string  activity_status_str      = 9;//状态1待开始2进行中3已结束4已暂停'
+}
+
+//领券活动出参
+message LedActivityListPage{
+  pageInfoOut.PageInfoOut     page_info  = 1;
+  repeated LedActivityList      list     = 2;
+}
+
+
+
+
+
+//两种活动通用对象
+message Result {
+  string result = 1;
+  bool  flag    =2 ;
+}
+
+//删除领券活动出参  两种活动通用对象
+message  ActivityDelIn{
+  int64     id                      = 1;//id
+}
+
+//详情领券活动出参 两种活动通用对象
+message  ActivityDetailIn{
+  int64     id                      = 1;//id
+}
+
+//详情领券活动出参 两种活动通用对象
+message  ActivityAnalysisIn{
+  int64     id                      = 1;//id
+}
+
+
+//详情领券活动出参 两种活动通用对象
+message  ActivityAnalysisOut{
+  int64     id                      = 1;//id
+  int64   led_person_num            = 2;//参与人数
+  int64   mp_led_person_num         = 3;//微信小程序领 参与人数
+  int64   h5_led_person_num         = 4;//H5领 参与人数
+  int64   send_num                  = 5;//发券数量
+  int64  verify_num                 = 6;//核销数量
+  int64  order_num                  = 7;//订单数量
+  float  order_money                = 8;//订单总额
+  int64  h5_led_coupon_num          = 9;//H5 领券优惠券数量
+  int64  mp_led_coupon_num          = 10;//小程序 领券优惠券数量
+}
+
+//修改领券活动状态出参 两种活动通用对象
+message UpdateActivityStatusIn{
+  int64     id                      = 1;//id
+  int32   activity_status           = 2;//状态1待开始2进行中3已结束4已暂停'
+}
+
+//新增入会礼活动入参
+message AddMembershipGiftActivityIn {
+    string activity_name = 1;//活动名称
+    int32 issue_channel = 2;// 发放渠道：1、微信小程序；2、pos
+    int32 activity_rule_type = 3;//活动规则：1、赠送优惠券；2、首单优惠
+    string coupon_template_json = 4;//活动券模版json 示例：[{"couponTemplateId":1,"sendNum":2}]
+    int32 period_validity_type = 5;//有效期类型1永久有效2指定时间
+    string activity_backen_image = 6;//活动类型1,活动背景图 活动类型2活动宣传图
+    int32 issue_type = 7;         //通知方式：1、弹窗通知；2、短信通知；3、公众号模版通知
+    int32 popup_type = 8;// 弹窗类型 1默认弹窗 2自定义弹窗
+    int32 refund_return_ticket = 9;//退款退券1允许2不允许'
+    int32 activity_status = 10;//状态1待开始2进行中3已结束4已暂停'
+}
+
+//编辑入会礼活动入参
+message UpdateMembershipGiftActivityIn{
+
+}
+
+//详情入会礼活动入参
+message MembershipGiftActivityDetailIn{
+
+}
+
+//详情入会礼活动出参
+message MembershipGiftActivityDetailOut{
+
+}
+//删除发券活动
+message DelMembershipGiftActivityIn{
+  int64 id = 1; //活动id
+}
+//入会礼活动列表
+message MembershipGiftActivityList{
+
+}
+//入会礼活动列表入参
+message MembershipGiftActivityListIn{
+
+}
+//领券活动出参
+message MembershipGiftActivityListPage{
+  pageInfoOut.PageInfoOut                page_info  = 1;
+  repeated MembershipGiftActivityList      list     = 2;
+}
+
+
+
+/* 入会礼服务*/
+service MembershipGiftActivity{
+  //添加入会礼活动接口
+  rpc AddMembershipGiftActivity(AddMembershipGiftActivityIn) returns (Result){
+    
+  }
+
+  //获取入会礼活动详情接口
+  rpc MembershipGiftActivityDetail(ActivityDetailIn) returns (MembershipGiftActivityDetailOut){
+    
+  }
+
+  //编辑入会礼活动接口
+  rpc UpdateMembershipGiftActivity(UpdateMembershipGiftActivityIn) returns (Result){
+    
+  }
+
+  //编辑入会礼活动状态接口
+  rpc UpdateMembershipGiftActivityStatus(UpdateActivityStatusIn) returns (Result){
+    
+  }
+
+  //删除入会礼活动状态接口
+  rpc DelMembershipGiftActivity(ActivityDetailIn) returns (Result){
+    
+  }
+
+  //入会礼活动列表接口
+  rpc MembershipGiftActivityList(MembershipGiftActivityListIn) returns (MembershipGiftActivityListPage){
+    
+  }
+
+  //入会礼活动统计接口
+  rpc MembershipActivityAnalysis(ActivityAnalysisIn) returns (ActivityAnalysisOut){
+    
+  }
+
+}
